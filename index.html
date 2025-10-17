@@ -251,42 +251,528 @@ footer.footer {
   <script>
   // Example App Privacy Data
   const appsData = {
-    "YouTube": {
-      dataCollected: ["Location", "Search History", "Device Info"],
-      permissions: ["Camera", "Microphone", "Storage"],
-      safe: false
-    },
-    "Instagram": {
-      dataCollected: ["Contacts", "Photos", "Location", "Usage Data"],
-      permissions: ["Camera", "Microphone", "Storage"],
-      safe: false
-    },
-    "Facebook": {
-      dataCollected: ["Contacts", "Messages", "Location", "Device Info"],
-      permissions: ["Camera", "Microphone", "Storage"],
-      safe: false
-    },
-    "WhatsApp": {
-      dataCollected: ["Contacts", "Messages", "Usage Data"],
-      permissions: ["Microphone", "Storage", "Camera"],
-      safe: false
-    },
-    "Calculator": {
-      dataCollected: [],
-      permissions: [],
-      safe: true
-    },
-    "Signal": {
-      dataCollected: ["Phone Number"],
-      permissions: ["Microphone", "Camera", "Storage"],
-      safe: true
-    },
-    "Telegram": {
-      dataCollected: ["Contacts", "Usage Data"],
-      permissions: ["Camera", "Microphone", "Storage"],
-      safe: true
-    }
-  };
+    {
+  "YouTube": {
+    "dataCollected": ["Location", "Search History", "Device Info", "Viewing History"],
+    "permissions": ["Camera", "Microphone", "Storage", "Location"],
+    "safe": false
+  },
+  "Instagram": {
+    "dataCollected": ["Contacts", "Photos", "Location", "Usage Data", "Messages"],
+    "permissions": ["Camera", "Microphone", "Storage", "Contacts"],
+    "safe": false
+  },
+  "Facebook": {
+    "dataCollected": ["Contacts", "Messages", "Location", "Device Info", "Usage Data"],
+    "permissions": ["Camera", "Microphone", "Storage", "Location"],
+    "safe": false
+  },
+  "WhatsApp": {
+    "dataCollected": ["Contacts", "Messages", "Usage Data", "Phone Number"],
+    "permissions": ["Microphone", "Storage", "Camera", "Contacts"],
+    "safe": false
+  },
+  "Calculator": {
+    "dataCollected": [],
+    "permissions": [],
+    "safe": true
+  },
+  "Signal": {
+    "dataCollected": ["Phone Number"],
+    "permissions": ["Microphone", "Camera", "Storage", "Contacts"],
+    "safe": true
+  },
+  "Telegram": {
+    "dataCollected": ["Contacts", "Usage Data", "Phone Number"],
+    "permissions": ["Camera", "Microphone", "Storage", "Contacts"],
+    "safe": true
+  },
+  "TikTok": {
+    "dataCollected": ["Location", "Usage Data", "Device Info", "Contacts", "Biometric Data"],
+    "permissions": ["Camera", "Microphone", "Storage", "Contacts"],
+    "safe": false
+  },
+  "X (Twitter)": {
+    "dataCollected": ["Location", "Contacts", "Usage Data", "Device Info"],
+    "permissions": ["Camera", "Microphone", "Storage", "Location"],
+    "safe": false
+  },
+  "Snapchat": {
+    "dataCollected": ["Location", "Contacts", "Photos", "Usage Data", "Device Info"],
+    "permissions": ["Camera", "Microphone", "Storage", "Location", "Contacts"],
+    "safe": false
+  },
+  "Google Maps": {
+    "dataCollected": ["Location", "Search History", "Usage Data", "Device Info"],
+    "permissions": ["Location", "Microphone", "Contacts"],
+    "safe": false
+  },
+  "Spotify": {
+    "dataCollected": ["Usage Data", "Location", "Device Info", "Search History"],
+    "permissions": ["Storage", "Microphone"],
+    "safe": false
+  },
+  "Gmail": {
+    "dataCollected": ["Emails", "Contacts", "Usage Data", "Device Info"],
+    "permissions": ["Contacts", "Storage", "Camera"],
+    "safe": false
+  },
+  "Amazon Shopping": {
+    "dataCollected": ["Purchase History", "Search History", "Location", "Device Info", "Contacts"],
+    "permissions": ["Camera", "Microphone", "Storage", "Location", "Contacts"],
+    "safe": false
+  },
+  "Brave Browser": {
+    "dataCollected": ["Anonymous Usage Data"],
+    "permissions": ["Storage", "Location", "Camera", "Microphone"],
+    "safe": true
+  },
+  "Clock": {
+    "dataCollected": [],
+    "permissions": ["Notifications"],
+    "safe": true
+  },
+  "LinkedIn": {
+    "dataCollected": ["Contacts", "Work History", "Location", "Messages", "Usage Data"],
+    "permissions": ["Contacts", "Camera", "Storage", "Location"],
+    "safe": false
+  },
+  "Pinterest": {
+    "dataCollected": ["Search History", "Usage Data", "User Content", "Device Info"],
+    "permissions": ["Camera", "Storage"],
+    "safe": false
+  },
+  "Reddit": {
+    "dataCollected": ["Browsing History", "Usage Data", "Location", "User Content"],
+    "permissions": ["Storage", "Camera", "Contacts"],
+    "safe": false
+  },
+  "Discord": {
+    "dataCollected": ["Messages", "Usage Data", "Device Info", "Contacts"],
+    "permissions": ["Microphone", "Camera", "Storage"],
+    "safe": false
+  },
+  "Netflix": {
+    "dataCollected": ["Viewing History", "Search History", "Device Info", "Location"],
+    "permissions": ["Storage", "Notifications"],
+    "safe": false
+  },
+  "Uber": {
+    "dataCollected": ["Location History", "Trip Data", "Financial Info", "Contacts"],
+    "permissions": ["Location", "Phone", "Contacts", "Storage"],
+    "safe": false
+  },
+  "Lyft": {
+    "dataCollected": ["Location History", "Trip Data", "Financial Info", "Contacts"],
+    "permissions": ["Location", "Phone", "Contacts", "Storage"],
+    "safe": false
+  },
+  "Airbnb": {
+    "dataCollected": ["Booking History", "Search History", "Location", "Financial Info", "Messages"],
+    "permissions": ["Location", "Calendar", "Camera", "Storage"],
+    "safe": false
+  },
+  "PayPal": {
+    "dataCollected": ["Financial Info", "Transaction History", "Contacts", "Device Info", "Location"],
+    "permissions": ["Camera", "Contacts", "Location"],
+    "safe": false
+  },
+  "Venmo": {
+    "dataCollected": ["Financial Info", "Transaction History", "Contacts", "Device Info", "Usage Data"],
+    "permissions": ["Contacts", "Camera", "Location"],
+    "safe": false
+  },
+  "Google Drive": {
+    "dataCollected": ["Files", "Usage Data", "Device Info", "Contacts"],
+    "permissions": ["Storage", "Contacts", "Camera"],
+    "safe": false
+  },
+  "Dropbox": {
+    "dataCollected": ["Files", "Usage Data", "Device Info"],
+    "permissions": ["Storage", "Contacts", "Camera"],
+    "safe": false
+  },
+  "Microsoft Teams": {
+    "dataCollected": ["Messages", "Calendar", "Contacts", "Usage Data"],
+    "permissions": ["Camera", "Microphone", "Storage", "Contacts", "Calendar"],
+    "safe": false
+  },
+  "Zoom": {
+    "dataCollected": ["Meeting Data", "Contacts", "Usage Data", "Device Info"],
+    "permissions": ["Camera", "Microphone", "Storage", "Contacts", "Calendar"],
+    "safe": false
+  },
+  "Slack": {
+    "dataCollected": ["Messages", "Files", "Contacts", "Usage Data"],
+    "permissions": ["Camera", "Microphone", "Storage", "Contacts"],
+    "safe": false
+  },
+  "eBay": {
+    "dataCollected": ["Purchase History", "Search History", "Location", "Device Info"],
+    "permissions": ["Camera", "Storage", "Location"],
+    "safe": false
+  },
+  "Etsy": {
+    "dataCollected": ["Purchase History", "Search History", "Messages", "Financial Info"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Waze": {
+    "dataCollected": ["Real-time Location", "Trip History", "Usage Data"],
+    "permissions": ["Location", "Microphone", "Contacts"],
+    "safe": false
+  },
+  "SoundCloud": {
+    "dataCollected": ["Listening History", "Usage Data", "Device Info"],
+    "permissions": ["Storage", "Microphone"],
+    "safe": false
+  },
+  "Shazam": {
+    "dataCollected": ["Audio Recordings", "Location", "Usage Data"],
+    "permissions": ["Microphone", "Location"],
+    "safe": false
+  },
+  "Evernote": {
+    "dataCollected": ["User Notes", "Usage Data", "Location", "Device Info"],
+    "permissions": ["Camera", "Storage", "Microphone", "Location"],
+    "safe": false
+  },
+  "Trello": {
+    "dataCollected": ["User Content", "Usage Data", "Contacts"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Asana": {
+    "dataCollected": ["User Content", "Usage Data", "Contacts", "Team Info"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Google Photos": {
+    "dataCollected": ["Photos", "Videos", "Location", "Usage Data"],
+    "permissions": ["Storage"],
+    "safe": false
+  },
+  "Adobe Lightroom": {
+    "dataCollected": ["Photos", "Usage Data", "Device Info"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Canva": {
+    "dataCollected": ["User Designs", "Photos", "Usage Data"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "VSCO": {
+    "dataCollected": ["Photos", "Usage Data", "Device Info"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Duolingo": {
+    "dataCollected": ["Learning Progress", "Usage Data", "Device Info"],
+    "permissions": ["Microphone", "Notifications"],
+    "safe": false
+  },
+  "Kindle": {
+    "dataCollected": ["Reading History", "Purchases", "Notes", "Usage Data"],
+    "permissions": ["Storage"],
+    "safe": false
+  },
+  "Goodreads": {
+    "dataCollected": ["Reading History", "Reviews", "Contacts", "Usage Data"],
+    "permissions": ["Contacts", "Camera"],
+    "safe": false
+  },
+  "MyFitnessPal": {
+    "dataCollected": ["Health Data", "Food Logs", "Usage Data", "Device Info"],
+    "permissions": ["Camera", "Notifications"],
+    "safe": false
+  },
+  "Strava": {
+    "dataCollected": ["GPS Tracks", "Health & Fitness Data", "Contacts", "Photos"],
+    "permissions": ["Location", "Physical Activity", "Contacts", "Storage"],
+    "safe": false
+  },
+  "Calm": {
+    "dataCollected": ["Session History", "Usage Data", "Health Data"],
+    "permissions": ["Notifications"],
+    "safe": false
+  },
+  "Headspace": {
+    "dataCollected": ["Session History", "Usage Data", "Health Data"],
+    "permissions": ["Notifications"],
+    "safe": false
+  },
+  "Zomato": {
+    "dataCollected": ["Order History", "Location", "Search History", "Financial Info"],
+    "permissions": ["Location", "Phone", "Contacts", "SMS"],
+    "safe": false
+  },
+  "Swiggy": {
+    "dataCollected": ["Order History", "Location", "Search History", "Financial Info"],
+    "permissions": ["Location", "Phone", "Contacts", "SMS"],
+    "safe": false
+  },
+  "Flipkart": {
+    "dataCollected": ["Purchase History", "Search History", "Location", "Contacts", "Device Info"],
+    "permissions": ["Camera", "Storage", "Location", "Contacts", "SMS"],
+    "safe": false
+  },
+  "Myntra": {
+    "dataCollected": ["Purchase History", "Search History", "Photos", "Device Info"],
+    "permissions": ["Camera", "Storage", "Location", "Contacts"],
+    "safe": false
+  },
+  "Paytm": {
+    "dataCollected": ["Financial Info", "Transaction History", "Contacts", "Location", "SMS"],
+    "permissions": ["SMS", "Location", "Contacts", "Camera", "Storage", "Phone"],
+    "safe": false
+  },
+  "Google Pay (GPay)": {
+    "dataCollected": ["Transaction History", "Location", "Contacts", "Usage Data", "SMS"],
+    "permissions": ["Location", "Contacts", "SMS", "Camera"],
+    "safe": false
+  },
+  "PhonePe": {
+    "dataCollected": ["Financial Info", "Transaction History", "Contacts", "Location", "SMS"],
+    "permissions": ["SMS", "Location", "Contacts", "Camera", "Storage", "Phone"],
+    "safe": false
+  },
+  "Twitch": {
+    "dataCollected": ["Viewing History", "Chat Messages", "Usage Data", "Device Info"],
+    "permissions": ["Microphone", "Camera", "Storage"],
+    "safe": false
+  },
+  "VLC Media Player": {
+    "dataCollected": ["Anonymous Usage Data"],
+    "permissions": ["Storage"],
+    "safe": true
+  },
+  "Files by Google": {
+    "dataCollected": ["Anonymous Usage Data"],
+    "permissions": ["Storage"],
+    "safe": true
+  },
+  "DuckDuckGo Browser": {
+    "dataCollected": ["Anonymous Usage Data"],
+    "permissions": ["Storage", "Location"],
+    "safe": true
+  },
+  "ProtonMail": {
+    "dataCollected": ["Encrypted Emails"],
+    "permissions": ["Contacts", "Storage"],
+    "safe": true
+  },
+  "LastPass": {
+    "dataCollected": ["Encrypted Vault"],
+    "permissions": ["Accessibility Service"],
+    "safe": true
+  },
+  "1Password": {
+    "dataCollected": ["Encrypted Vault"],
+    "permissions": ["Accessibility Service"],
+    "safe": true
+  },
+  "Booking.com": {
+    "dataCollected": ["Booking History", "Search History", "Location", "Financial Info"],
+    "permissions": ["Location", "Calendar", "Storage"],
+    "safe": false
+  },
+  "Expedia": {
+    "dataCollected": ["Booking History", "Search History", "Location", "Financial Info"],
+    "permissions": ["Location", "Calendar", "Storage"],
+    "safe": false
+  },
+  "The New York Times": {
+    "dataCollected": ["Reading History", "Location", "Usage Data"],
+    "permissions": ["Location", "Storage"],
+    "safe": false
+  },
+  "The Guardian": {
+    "dataCollected": ["Reading History", "Usage Data", "Location"],
+    "permissions": ["Location", "Storage"],
+    "safe": false
+  },
+  "BBC News": {
+    "dataCollected": ["Reading History", "Location", "Usage Data"],
+    "permissions": ["Location", "Storage"],
+    "safe": false
+  },
+  "Microsoft Outlook": {
+    "dataCollected": ["Emails", "Contacts", "Calendar", "Usage Data"],
+    "permissions": ["Contacts", "Storage", "Camera", "Calendar"],
+    "safe": false
+  },
+  "Google Calendar": {
+    "dataCollected": ["Events", "Contacts", "Usage Data"],
+    "permissions": ["Calendar", "Contacts", "Location"],
+    "safe": false
+  },
+  "Tinder": {
+    "dataCollected": ["Location", "Photos", "Messages", "Contacts", "Usage Data"],
+    "permissions": ["Location", "Camera", "Storage", "Contacts"],
+    "safe": false
+  },
+  "Bumble": {
+    "dataCollected": ["Location", "Photos", "Messages", "Contacts", "Usage Data"],
+    "permissions": ["Location", "Camera", "Storage", "Contacts"],
+    "safe": false
+  },
+  "Yelp": {
+    "dataCollected": ["Search History", "Location", "Reviews", "Usage Data"],
+    "permissions": ["Location", "Camera", "Storage"],
+    "safe": false
+  },
+  "Foursquare": {
+    "dataCollected": ["Location History", "Check-ins", "Usage Data"],
+    "permissions": ["Location", "Contacts", "Camera"],
+    "safe": false
+  },
+  "DoorDash": {
+    "dataCollected": ["Order History", "Location", "Financial Info", "Usage Data"],
+    "permissions": ["Location", "Contacts", "Phone"],
+    "safe": false
+  },
+  "Grubhub": {
+    "dataCollected": ["Order History", "Location", "Financial Info", "Usage Data"],
+    "permissions": ["Location", "Contacts", "Phone"],
+    "safe": false
+  },
+  "Notion": {
+    "dataCollected": ["User Content", "Usage Data", "Device Info"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Figma": {
+    "dataCollected": ["User Designs", "Usage Data"],
+    "permissions": ["Storage"],
+    "safe": false
+  },
+  "Zillow": {
+    "dataCollected": ["Search History", "Location", "Saved Homes", "Usage Data"],
+    "permissions": ["Location", "Storage", "Camera"],
+    "safe": false
+  },
+  "Redfin": {
+    "dataCollected": ["Search History", "Location", "Saved Homes", "Usage Data"],
+    "permissions": ["Location", "Storage", "Camera"],
+    "safe": false
+  },
+  "Chase Mobile": {
+    "dataCollected": ["Financial Info", "Transaction History", "Location", "Device Info"],
+    "permissions": ["Location", "Camera", "Contacts"],
+    "safe": false
+  },
+  "Bank of America": {
+    "dataCollected": ["Financial Info", "Transaction History", "Location", "Device Info"],
+    "permissions": ["Location", "Camera", "Contacts"],
+    "safe": false
+  },
+  "Robinhood": {
+    "dataCollected": ["Financial Info", "Personal ID", "Transaction History", "Usage Data"],
+    "permissions": ["Contacts", "Identity"],
+    "safe": false
+  },
+  "Coinbase": {
+    "dataCollected": ["Financial Info", "Personal ID", "Transaction History", "Usage Data"],
+    "permissions": ["Camera", "Identity"],
+    "safe": false
+  },
+  "Candy Crush Saga": {
+    "dataCollected": ["Usage Data", "Device Info", "Purchase History", "User ID"],
+    "permissions": ["Storage", "Network Access"],
+    "safe": false
+  },
+  "Clash of Clans": {
+    "dataCollected": ["Gameplay Data", "Device Info", "Purchase History", "User ID"],
+    "permissions": ["Storage", "Network Access"],
+    "safe": false
+  },
+  "PUBG Mobile": {
+    "dataCollected": ["Gameplay Data", "Device Info", "Location", "Contacts", "Audio Recordings"],
+    "permissions": ["Microphone", "Storage", "Location"],
+    "safe": false
+  },
+  "Genshin Impact": {
+    "dataCollected": ["Gameplay Data", "Device Info", "Purchase History"],
+    "permissions": ["Storage", "Microphone"],
+    "safe": false
+  },
+  "Coursera": {
+    "dataCollected": ["Course Progress", "Usage Data", "User Content"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "Udemy": {
+    "dataCollected": ["Course Progress", "Usage Data", "User Content"],
+    "permissions": ["Storage", "Camera"],
+    "safe": false
+  },
+  "AllTrails": {
+    "dataCollected": ["GPS Tracks", "Photos", "Usage Data"],
+    "permissions": ["Location", "Storage", "Camera"],
+    "safe": false
+  },
+  "Weather Channel": {
+    "dataCollected": ["Precise Location", "Usage Data", "Device Info"],
+    "permissions": ["Location"],
+    "safe": false
+  },
+  "AccuWeather": {
+    "dataCollected": ["Precise Location", "Usage Data", "Device Info"],
+    "permissions": ["Location"],
+    "safe": false
+  },
+  "Firefox": {
+    "dataCollected": ["Browsing History", "Usage Data", "Technical Data"],
+    "permissions": ["Storage", "Location", "Camera", "Microphone"],
+    "safe": false
+  },
+  "Opera": {
+    "dataCollected": ["Browsing History", "Usage Data", "Location"],
+    "permissions": ["Storage", "Location", "Camera", "Microphone"],
+    "safe": false
+  },
+  "Viber": {
+    "dataCollected": ["Contacts", "Messages", "Call Logs", "Usage Data"],
+    "permissions": ["Microphone", "Storage", "Camera", "Contacts"],
+    "safe": false
+  },
+  "Skype": {
+    "dataCollected": ["Contacts", "Messages", "Call Logs", "Usage Data", "Location"],
+    "permissions": ["Microphone", "Storage", "Camera", "Contacts"],
+    "safe": false
+  },
+  "Hulu": {
+    "dataCollected": ["Viewing History", "Search History", "Device Info", "Location"],
+    "permissions": ["Storage", "Notifications"],
+    "safe": false
+  },
+  "Disney+": {
+    "dataCollected": ["Viewing History", "Search History", "Device Info", "Location"],
+    "permissions": ["Storage", "Notifications"],
+    "safe": false
+  },
+  "IMDb": {
+    "dataCollected": ["Search History", "Viewing History", "Usage Data"],
+    "permissions": ["Location", "Notifications"],
+    "safe": false
+  },
+  "Zedge": {
+    "dataCollected": ["Usage Data", "Device Info", "Search History"],
+    "permissions": ["Storage", "Settings"],
+    "safe": false
+  },
+  "Bitwarden": {
+    "dataCollected": ["Encrypted Vault"],
+    "permissions": ["Accessibility Service"],
+    "safe": true
+  },
+  "Standard Notes": {
+    "dataCollected": ["Encrypted Notes"],
+    "permissions": ["Storage"],
+    "safe": true
+  }
+}
 
   // Search Function
   function searchApp() {
@@ -329,3 +815,4 @@ footer.footer {
   </script>
 </body>
 </html>
+
