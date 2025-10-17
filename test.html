@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Privacy Tracker</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+/* Reset & Global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fafafa;
+  color: #262626;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header.header {
+  background: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #262626;
+}
+
+.main-container {
+  flex: 1;
+  max-width: 600px;
+  margin: 20px auto;
+  width: 95%;
+}
+
+.search-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-area input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #dbdbdb;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-area input:focus {
+  border-color: #0095f6;
+}
+
+.search-area button {
+  background-color: #0095f6;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-area button:hover {
+  background-color: #0073e6;
+}
+
+.results p {
+  text-align: center;
+  color: #8e8e8e;
+}
+
+/* Card style for app result */
+.app-card {
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.app-card h2 {
+  color: #262626;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.app-card h3 {
+  color: #0095f6;
+  font-size: 1rem;
+  margin: 10px 0 5px;
+}
+
+.app-card ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.app-card li {
+  line-height: 1.5;
+}
+
+.app-card .safe-status {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.app-card .safe-status.safe {
+  color: #22c55e;
+}
+
+.app-card .safe-status.not-safe {
+  color: #ef4444;
+}
+
+/* Footer */
+footer.footer {
+  background-color: #fff;
+  border-top: 1px solid #dbdbdb;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1 1 45%;
+  min-width: 280px;
+}
+
+.footer-section h3 {
+  color: #0095f6;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section li {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-section ul li::before {
+  content: "• ";
+  color: #0095f6;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+  padding-top: 10px;
+  color: #8e8e8e;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-section {
+    flex: 1 1 100%;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h1>App Privacy Tracker</h1>
+  </header>
+
+  <main class="main-container">
+    <div class="search-area">
+      <input type="text" id="searchInput" placeholder="Search for an app...">
+      <button onclick="searchApp()">Search</button>
+    </div>
+
+    <div id="result" class="results">
+      <p>Search for apps like YouTube, Instagram, Calculator...</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>👥 Project Team Members</h3>
+        <ul>
+          <li>AKSHAY C R</li>
+          <li>ALBERT PAUL</li>
+          <li>AJIN BABU</li>
+          <li>ALAN AVARACHAN</li>
+          <li>ANANDH N S</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>📜 Data Collection Laws in India</h3>
+        <p><strong>Digital Personal Data Protection Act (DPDP), 2023</strong></p>
+        <ul>
+          <li>Consent-based personal data collection</li>
+          <li>Right to access, correct, and delete data</li>
+          <li>Protection of children’s and sensitive data</li>
+          <li>Penalties for unauthorized data sharing</li>
+        </ul>
+        <p style="margin-top:5px;">Always review app permissions and privacy policies before use.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Made with ❤️ for Privacy Awareness | © 2025 App Privacy Tracker
+    </div>
+  </footer>
+
+  <script>
+  // Example App Privacy Data
+  const appsData = {
+    "YouTube": {
+      dataCollected: ["Location", "Search History", "Device Info"],
+      permissions: ["Camera", "Microphone", "Storage"],
+      safe: false
+    },
+    "Instagram": {
+      dataCollected: ["Contacts", "Photos", "Location", "Usage Data"],
+      permissions: ["Camera", "Microphone", "Storage"],
+      safe: false
+    },
+    "Facebook": {
+      dataCollected: ["Contacts", "Messages", "Location", "Device Info"],
+      permissions: ["Camera", "Microphone", "Storage"],
+      safe: false
+    },
+    "WhatsApp": {
+      dataCollected: ["Contacts", "Messages", "Usage Data"],
+      permissions: ["Microphone", "Storage", "Camera"],
+      safe: false
+    },
+    "Calculator": {
+      dataCollected: [],
+      permissions: [],
+      safe: true
+    },
+    "Signal": {
+      dataCollected: ["Phone Number"],
+      permissions: ["Microphone", "Camera", "Storage"],
+      safe: true
+    },
+    "Telegram": {
+      dataCollected: ["Contacts", "Usage Data"],
+      permissions: ["Camera", "Microphone", "Storage"],
+      safe: true
+    }
+  };
+
+  // Search Function
+  function searchApp() {
+    const input = document.getElementById("searchInput").value.trim();
+    const resultDiv = document.getElementById("result");
+
+    if (!input) {
+      resultDiv.innerHTML = `<p>Please enter an app name.</p>`;
+      return;
+    }
+
+    const appName = Object.keys(appsData).find(
+      key => key.toLowerCase() === input.toLowerCase()
+    );
+
+    const app = appsData[appName];
+    if (!app) {
+      resultDiv.innerHTML = `<p>No data found for "${input}".</p>`;
+      return;
+    }
+
+    resultDiv.innerHTML = `
+      <div class="app-card">
+        <h2>${appName}</h2>
+        <h3>Data Collected:</h3>
+        <ul>${app.dataCollected.length ? app.dataCollected.map(d => `<li>${d}</li>`).join('') : '<li>None</li>'}</ul>
+        <h3>Permissions:</h3>
+        <ul>${app.permissions.length ? app.permissions.map(p => `<li>${p}</li>`).join('') : '<li>None</li>'}</ul>
+        <p class="safe-status ${app.safe ? 'safe' : 'not-safe'}">
+          ${app.safe ? 'This app is considered safe ✅' : 'This app collects significant data ⚠️'}
+        </p>
+      </div>
+    `;
+  }
+
+  // Allow Enter key to trigger search
+  document.getElementById("searchInput").addEventListener("keyup", (e) => {
+    if (e.key === "Enter") searchApp();
+  });
+  </script>
+</body>
+</html>
